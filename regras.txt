@@ -1,0 +1,54 @@
+Os desenvolvedores devem clonar o repositório (Diferente de baixar o .zip)
+
+--------Comandos git para Clonagem de Repositório-------
+|git init                                              |
+|git clone https://github.com/SilasReuel/FabLabCITe.git|
+--------------------------------------------------------
+
+<<<<<<Regra de PUSH>>>>>>
+Antes de fazer um PUSH deve-se observar se não está enviando uma pasta inútil, pode prejudicar o sistema;
+Nunca enviar para branch main, apenas para branch development;
+Criar uma branch local diferente antes de fazer push;
+
+-------------Criação de Branch local-------------
+|git checkout -b nome/branch/nova               |
+-------------------------------------------------
+
+Após criar a branch deve-se executar os comandos para PUSH
+
+-------------------------------------Comandos para Realizar Push-------------------------------------
+|git status                                                                                         |
+|git add .                                                                                          |
+|git status                                                                                         |
+|git commit -m "Sua mensagem, deve ser curta, para adições(add), conserto de problemas(fix bug) etc"|
+|git push                                                                                           |
+-----------------------------------------------------------------------------------------------------
+***OBS***
+No caso de ser o primeiro commit após a clonagem ou criação de repositório use >> git push -u URL nome/branch
+
+***OBS***
+git status -->> Verifica se há arquivos para enviar por push >> se estiver vermelho use >> git add <arquivos> ou 
+.(ponto final adiciona todos os arquivos, usado na maioria das vezes);
+Se estiver verde, significa que os arquivos estão em um commit pronto para dar push;
+Se aparecer a mensagem >> 
+Your branch is up to date with 'origin/development'.
+nothing to commit, working tree clean
+Significa que seus arquivos locais estão atualizados
+
+O que fazer após realizar o push?
+Verifique se os arquivos chegaram no github e um novo branch foi criado, se sim, execute os comandos:
+----------------Comandos--------------------
+|git checkout development                  |
+|git branch -D nome/branch/criada/para/push|
+--------------------------------------------
+
+Após fazer um push, será gerado um pull request, ou seja, deverá realizar o merge, apenas uma pessoa realiza o merge e deve se certificar
+que as alterações funcionarão corretamente ao juntarem com os códigos pré existentes, definir uma única pessoa para fazer merge, 
+normalmente o dono do repositório (manteremos assim). Após realizar o merge deve alertar para que os outros desenvolvedores façam o git 
+pull.
+-Comandos-
+|git pull|
+----------
+
+ATENÇÃO! Caso você tenha realizado alterações e quer realizar um git pull, você deve primeiro subir suas alterações para o GitHub,
+caso contrário suas alterações serão perdidas. Para fazer o PUSH obedeça as regras estabelecidas.
