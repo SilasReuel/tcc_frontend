@@ -1,9 +1,9 @@
 Os desenvolvedores devem clonar o repositório (Diferente de baixar o .zip)
 
---------Comandos git para Clonagem de Repositório-------
-|git init                                              |
-|git clone https://github.com/SilasReuel/FabLabCITe.git|
---------------------------------------------------------
+-----------Comandos git para Clonagem de Repositório------------
+|git init                                                      |
+|git clone https://github.com/SilasReuel/tcc_ts_development.git|
+----------------------------------------------------------------
 
 <<<<<<Regra de PUSH>>>>>>
 Antes de fazer um PUSH deve-se observar se não está enviando uma pasta inútil, pode prejudicar o sistema;
