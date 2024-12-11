@@ -249,4 +249,15 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
 # End of https://www.toptal.com/developers/gitignore/api/web,react,extjs,node,windows,linux,laravel
