@@ -1,10 +1,10 @@
 import './App.css'
 
 function App() {
-
+  const res = 'Hello World!'
   return (
       <>
-        <h1>Hello World!</h1>
+        <h1>{res}</h1>
       </>
   )
 }
