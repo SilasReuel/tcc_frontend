@@ -1,0 +1,63 @@
+* Relação * 
+ger. <- 1:N -> Eq.
+líd. <- 1:1 -> Eq.
+mem <- N:1 -> Eq.
+
+* Hierarquia *
+	Gerente --> Tudo 
+	Líder --> Quase tudo
+	Membros --> Básico
+
+User{
+	username
+	senha
+	email
+	Github{
+		id_commit
+		nome_user (name)
+		nome_repositorio 
+		data_update
+	}
+	tipo(Gerente de equipes, Líder de equipe, membro de equipe)
+}
+
+Equipes{
+	nome_equipe
+	User{}
+
+	Sprint{
+		data_inicio
+		data fim
+		nome_equipe
+
+		Task{
+			nome_task(resolver error 404(page not found))
+			data_criação
+			user_atribuido
+
+			method_retornos_tasks{
+				campo_descricao (descrição do commit ou descrição por input  TIPO: TEXT)
+				user_atribuido (TIPO: VARCHAR(50))
+				user_github *só aparece quando volta um serviço github(push, issue, etc)* TIPO: VARCHAR(39)
+				registro_commit *só aparece quando volta um serviço github(push, issue, etc) TIPO: VARCHAR(50)*
+				data_alt_task(dd/MM/yyyy)
+				status(concluído, em andamento, em aberto, prazo encerrado)
+				files
+			}
+		}
+	}
+}
+
+
+*retornos_tasks* >>> retorno dos dados que estão no BD
+
+!!!Pensar em Segurança!!!{
+	Criptografia da senha ???
+}
+
+!!!Novas Implementações!!!{
+	Grafana(Ações Membros)
+}
+
+*LEGENDAS*
+method===método ou função etc
