@@ -1,61 +1,63 @@
 		* --- USUÁRIOS --- *
 
-CREATE TYPE TIPO AS ENUM ('gerente', 'líder', 'membro');
-
 CREATE TABLE usuarios (
-	id_user SERIAL PRIMARY KEY NOT NULL,
+	id_user SERIAL PRIMARY KEY,
 	nome VARCHAR(100) NOT NULL,
 	senha VARCHAR(100) NOT NULL,
 	email VARCHAR(50) NOT NULL,
-	tipo TIPO NOT NULL 
-);
-
-		* --- GIT --- *
-
-CREATE TABLE git (
-	id_git SERIAL PRIMARY KEY NOT NULL,
-	user_id INT NOT NULL,
-	commit_id VARCHAR(100) NOT NULL,
-	user_git VARCHAR(40) NOT NULL,
-	nome_repositorio VARCHAR(50) NOT NULL,
-	data_update DATE NOT NULL,
-	FOREIGN KEY (user_id) REFERENCES usuarios(id_user)
+	user_git VARCHAR(40) NOT NULL
 );
 
 		* --- EQUIPES --- *
 
 CREATE TABLE equipes (
-	id_equipe SERIAL PRIMARY KEY NOT NULL,
-	membros INT NOT NULL,
-	nome_equipe VARCHAR(40) NOT NULL,
-	FOREIGN KEY (membros) REFERENCES usuarios(id_user)
+	id_equipe SERIAL PRIMARY KEY,
+	nome_equipe VARCHAR(100) NOT NULL
 );
 
 		* --- TASK --- *
 
-CREATE TYPE STATUS AS ENUM ('concluído', 'em andamento', 'em aberto', 'prazo encerrado');
-
 CREATE TABLE task (
-	id_task SERIAL PRIMARY KEY NOT NULL,
+	id_task SERIAL PRIMARY KEY,
 	nome_task VARCHAR(100) NOT NULL,
-	data_criacao DATE NULL,
-	user_atribuido INT NOT NULL,
-	descricao TEXT NULL,
-	registro_commit VARCHAR(50) NULL,
+	data_criacao DATE NOT NULL,
 	data_alt_task DATE NULL,
+	descricao TEXT NULL,
 	status STATUS NOT NULL,
-	files OID NULL,
-	FOREIGN KEY (user_atribuido) REFERENCES usuarios(id_user)
+	files OID NULL
+);
+
+		* --- FUNÇÕES --- *
+
+CREATE TABLE funcoes (
+	fk_id_user INT,
+	fk_id_equipe INT,
+	cargo TIPO NOT NULL,
+	FOREIGN KEY (fk_id_user) REFERENCES usuarios(id_user),
+	FOREIGN KEY (fk_id_equipe) REFERENCES equipes(id_equipe)
 );
 
 		* --- SPRINT --- *
 
 CREATE TABLE sprint (
-	id_sprint SERIAL PRIMARY KEY NOT NULL,
+	fk_id_equipe INT NOT NULL,
+	fk_id_task INT NOT NULL,
 	data_inicio DATE NOT NULL,
-	data_fim DATE NOT NULL,
-	equipe_id INT NOT NULL,
-	task_id INT NOT NULL,
-	FOREIGN KEY (equipe_id) REFERENCES equipes(id_equipe),
-	FOREIGN KEY (task_id) REFERENCES task(id_task)
+	data_fim DATE NULL,
+	FOREIGN KEY (fk_id_equipe) REFERENCES equipes(id_equipe),
+		FOREIGN KEY (fk_id_task) REFERENCES task(id_task)
+);
+
+		* --- GIT --- *
+
+CREATE TABLE git (
+	fk_id_user INT NOT NULL,
+	fk_id_task INT NOT NULL,
+	evento_git VARCHAR(20) NOT NULL,
+	registro_evento VARCHAR(30) NOT NULL,
+	data_update DATE NOT NULL,
+	nome_repositorio VARCHAR(50) NOT NULL,
+	desc_commit TEXT NOT NULL,
+	FOREIGN KEY (fk_id_user) REFERENCES usuarios(id_user),
+	FOREIGN KEY (fk_id_task) REFERENCES task(id_task)
 );
