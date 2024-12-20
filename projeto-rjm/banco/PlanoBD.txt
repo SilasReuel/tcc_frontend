@@ -40,6 +40,7 @@ Equipes{
 				user_atribuido (TIPO: VARCHAR(50))
 				user_github *só aparece quando volta um serviço github(push, issue, etc)* TIPO: VARCHAR(39)
 				registro_commit *só aparece quando volta um serviço github(push, issue, etc) TIPO: VARCHAR(50)*
+				evento GitHub *só aparece quando volta um serviço github(push, issue, etc) TIPO: VARCHAR(20)*
 				data_alt_task(dd/MM/yyyy)
 				status(concluído, em andamento, em aberto, prazo encerrado)
 				files
