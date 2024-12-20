@@ -52,3 +52,30 @@ pull.
 
 ATENÇÃO! Caso você tenha realizado alterações e quer realizar um git pull, você deve primeiro subir suas alterações para o GitHub,
 caso contrário suas alterações serão perdidas. Para fazer o PUSH obedeça as regras estabelecidas.
+
+                                                    CONVENTIONAL COMMITS
+
+----------------------------------Componentes principais-----------------------------
+|******************Tipo (obrigatório): Indica o propósito da mudança*****************|
+|*                                                                                  *|
+|*feat: Adição de uma nova funcionalidade                                           *|
+|*fix: Correção de um bug                                                           *|
+|*docs: Mudanças apenas na documentação                                             *|
+|*style: Alterações que não afetam a lógica do código (ex.: formatação, espaçamento)*|
+|*refactor: Alteração de código que não corrige bugs nem adiciona funcionalidades   *|
+|*test: Adiciona ou corrige testes                                                  *|
+|*chore: Atualizações de ferramentas, dependências ou configurações                 *|
+|************************************************************************************|
+|            *Escopo (opcional): Qual parte da aplicação foi afetada*                |
+|            *        Header, Footer, Sign In, Sign Out, etc        *                |
+|            ********************************************************                |
+|                                                                                    |
+|Descrição breve (obrigatória): Um resumo claro e conciso da mudança.                |
+--------------------------------------------------------------------------------------
+
+----------------------------------------Exemplo---------------------------------------
+|feat(auth): adiciona formulário de login                                            |
+|                                                                                    |
+|Inclui um formulário de login no componente Login.jsx.                              |
+|O formulário possui validação básica de e-mail e senha.                             |
+--------------------------------------------------------------------------------------
