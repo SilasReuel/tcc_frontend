@@ -9,6 +9,7 @@ plugins {
 dependencies {
     implementation("org.apache.commons:commons-text")
     implementation(project(":utilities"))
+    implementation("org.postgresql:postgresql:42.3.1")
 }
 
 application {

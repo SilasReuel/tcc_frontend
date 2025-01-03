@@ -7,8 +7,18 @@ import org.example.utilities.StringUtils
 
 import org.apache.commons.text.WordUtils
 
+import org.example.app.Util
+
 fun main() {
     val tokens = StringUtils.split(MessageUtils.getMessage())
     val result = StringUtils.join(tokens)
     println(WordUtils.capitalize(result))
+
+    Util.databaseConnection()
+
+    Util.insereUsuario()
+
+    val sql = "SELECT * FROM usuarios".trimIndent()
+    
+    println(Util.execQuery(sql))
 }
