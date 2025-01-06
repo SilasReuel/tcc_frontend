@@ -7,18 +7,11 @@ import org.example.utilities.StringUtils
 
 import org.apache.commons.text.WordUtils
 
-import org.example.app.Util
+import org.example.app.FuncsUteis
 
 fun main() {
-    val tokens = StringUtils.split(MessageUtils.getMessage())
-    val result = StringUtils.join(tokens)
-    println(WordUtils.capitalize(result))
 
-    Util.databaseConnection()
+    FuncsUteis.databaseConnection()//Conecta ao Banco de Dados
 
-    Util.insereUsuario()
-
-    val sql = "SELECT * FROM usuarios".trimIndent()
-    
-    println(Util.execQuery(sql))
+    FuncsUteis.selectUsuarioEspecifico("nome")
 }
