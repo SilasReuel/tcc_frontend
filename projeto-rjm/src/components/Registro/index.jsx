@@ -1,7 +1,9 @@
 // Deve ser melhorado o estilo e colocado o caminho para envio das informações
+import styles from './Registro.module.css'
+
 const Registro = ()=>{
     return (
-        <div class='forms'>
+        <div className={styles.registro}>
             <center>
                 <h1>
                     Faça seu Cadastro!
