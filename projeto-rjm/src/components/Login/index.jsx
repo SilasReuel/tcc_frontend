@@ -22,34 +22,28 @@ const Login = ()=>{
                     Faça seu Login!
                 </h1>
                 <form onSubmit={onSave}>
-                    <table>
-                        <tr>    
-                            <label>
-                                Nome ou E-mail:<br/>
-                                <input 
-                                    type="text" name="nome"
-                                    placeholder="Digite seu nome ou e-mail" required
-                                    value={name}
-                                    onChange={(e)=> setName(e.target.value)}    
-                                />
-                            </label>
-                        </tr>
+                        <label>
+                            Nome ou E-mail:<br/>
+                            <input 
+                                type="text" name="nome"
+                                placeholder="Digite seu nome ou e-mail" required
+                                value={name}
+                                onChange={(e)=> setName(e.target.value)}    
+                            />
+                        </label>
                         <br/>
-                        <tr>
-                            <label >
-                                Senha:<br/>
-                                <input 
-                                    type="password" name="senha"
-                                    placeholder="Digite sua senha" required
-                                    value={password}
-                                    onChange={(e)=> setPassaword(e.target.value)}
-                                />
-                                <br/>
-                                <a href="login/recSenha">Esqueci minha senha</a>
-                            </label>
-                        </tr>
-                    </table>
-                    <br/>
+                        <label >
+                            Senha:<br/>
+                            <input 
+                                type="password" name="senha"
+                                placeholder="Digite sua senha" required
+                                value={password}
+                                onChange={(e)=> setPassaword(e.target.value)}
+                            />
+                            <br/>
+                            <a href="login/recSenha">Esqueci minha senha</a>
+                            <br/>
+                        </label>
                     <button type="submit">Enviar</button>
                 </form>
                 <a href="/"><button>Voltar</button></a>
