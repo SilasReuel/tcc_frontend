@@ -6,16 +6,11 @@ const RecSenha = ()=>{
         <div className={styles.rec}>
             <center>
                 <h1>Esqueceu sua Senha?</h1>
-                <h4>Preencha o campo abaixo com seu e-mail.<br/>Será enviado um Link/Código de recuperação!</h4>
+                <h5>Um código de recuperação será enviado</h5>
                 <form action="" method="POST">
-                    <table>
-                            <tr>    
-                                <label>
-                                    <input type="text" name="nome" placeholder="Digite o e-mail" required/>
-                                </label>
-                            </tr>
-                    </table>
-                    <br/>
+                    <label>
+                    <input type="text" name="nome" placeholder="Digite o e-mail de sua conta" required/>
+                    </label>
                     <button type="submit">Enviar</button>
                 </form>
                 <a href="/login"><button>Voltar</button></a>
