@@ -1,0 +1,12 @@
+body{
+    min-height: 100vh;
+    margin: 0;
+    margin-top: 0;
+}
+
+#root{
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 15% 20% 30% 20% 15%;
+    grid-template-rows: repeat(4, auto);
+}

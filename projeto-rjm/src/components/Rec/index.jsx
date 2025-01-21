@@ -1,7 +1,9 @@
 // Deve ser melhorado o estilo e colocado o caminho para envio do E-mail
+import styles from './Rec.module.css'
+
 const RecSenha = ()=>{
     return(
-        <div class='forms'>
+        <div className={styles.rec}>
             <center>
                 <h1>Esqueceu sua Senha?</h1>
                 <h4>Preencha o campo abaixo com seu e-mail.<br/>Será enviado um Link/Código de recuperação!</h4>
