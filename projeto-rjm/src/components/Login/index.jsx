@@ -19,16 +19,13 @@ const Login = ()=>{
         e.preventDefault()
         return(
             <>
-            {(user).map(i => {
-                if(name == i.nome || name == i.email) {
-                    if(password == i.senha){
+            {(user).forEach( (e) => {
+                if(name == e.nome || name == e.email) 
+                    if(password == e.senha)
                         window.location.href = 'usuarios'
-                    } else
+                    else
                         console.log('Senha invalida')
-                } else 
-                    window.location.href = 'registro'
-                })
-            }
+            }, window.location.href = 'registro')}
             </>
         )
     } 
