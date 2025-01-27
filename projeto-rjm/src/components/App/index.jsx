@@ -10,7 +10,6 @@ const App = ()=>{
         <a href='/login'><button>Login</button></a>
         <a href='/registro'><button>Registro</button></a>
         <a href='/principal'><button>Principal</button></a>
-        <a href='/usuarios'><button>Usuários</button></a>
       </center>
     </div>
   )

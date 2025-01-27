@@ -1,11 +1,8 @@
-// Deve ser melhorado o estilo e colocado o caminho para envio das informações
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import styles from './Registro.module.css'
 import axios from "axios";
 
 const Registro = ()=>{
-    // caminho para da API
-    const API_URL = "http://localhost:3000/api/v2/usuarios"
     // armazena as informações do forms
     const [nome, setNome] = useState('')
     const [senha, setSenha] = useState('')
@@ -15,18 +12,16 @@ const Registro = ()=>{
     function onSave(e){
         e.preventDefault()
         postAPIData({nome, email, senha, user_git})
-        // Limpa as variáveis
-        setNome('')
-        setSenha('')
-        setEmail('')
-        setNg('')
         // joga para o login
         window.location.href="login"
     }
+    
     // função de post
     function postAPIData( param ) {
+        const API_URL = "http://localhost:3000/api/v2/usuarios"
         return axios.post(API_URL, param)
     }
+
     // forms
     return (
         <div className={styles.registro}>

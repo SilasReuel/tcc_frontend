@@ -1,26 +1,42 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from './Login.module.css'
+import axios from "axios";
 
-// Deve ser melhorado o estilo e colocado o caminho para envio das informações
+
+function getAPIData() {
+    const GET_URL = "http://localhost:3000/api/v2/usuarios"
+    return axios.get(GET_URL).then((response) => response.data);
+}
+
 const Login = ()=>{
     const [name, setName] = useState()
     const [password, setPassaword] = useState()
-    const [login, setLogin] = useState([])
-
+    const [user, setUser] = useState([])
+    
+    getAPIData().then((items) => { setUser(items) });
+    
     function onSave(e) {
         e.preventDefault()
-        console.log("Nome: "+name+",\tSenha: "+password)
-        const Dados = {name, password}
-        setLogin([...login, Dados])
-        console.log(login)
+        return(
+            <>
+            {(user).map(i => {
+                if(name == i.nome || name == i.email) {
+                    if(password == i.senha){
+                        window.location.href = 'usuarios'
+                    } else
+                        console.log('Senha invalida')
+                } else 
+                    window.location.href = 'registro'
+                })
+            }
+            </>
+        )
     } 
 
     return (
         <div className={styles.login}>
             <center>
-                <h1>
-                    Faça seu Login!
-                </h1>
+                <h1>Faça seu Login!</h1>
                 <form onSubmit={onSave}>
                         <label>
                             Nome ou E-mail:<br/>
