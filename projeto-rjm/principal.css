@@ -5,6 +5,16 @@ body{
     
 }
 
+table{
+  text-align: center;
+  color: black;
+}
+
+td{
+  border: 1px solid black;
+  padding: 0.5rem;
+}
+
 #root{
     min-height: 100vh;
     display: grid;

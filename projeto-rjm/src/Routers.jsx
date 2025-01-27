@@ -5,7 +5,7 @@ import Registro from "./components/Registro";
 import RecSenha from "./components/Rec";
 import App from './components/App';
 import Principal from "./components/Principal";
-import Get from "./API/User";
+import User from "./API/User";
 
 const Routers = ()=>{
     return(
@@ -16,7 +16,7 @@ const Routers = ()=>{
                 <Route path="/registro" element={<Registro/>}/>
                 <Route path="login/recSenha" element={<RecSenha/>}/>
                 <Route path="/principal" element={<Principal/>}/>
-                <Route path="/usuarios" element={<Get/>}/>
+                <Route path="/usuarios" element={<User/>}/>
             </Routes>
         </Router>   
     )
