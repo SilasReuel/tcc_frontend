@@ -10,7 +10,7 @@ function getAPIData() {
 
 const Login = ()=>{
     const [name, setName] = useState()
-    const [password, setPassaword] = useState()
+    const [password, setPassword] = useState()
     const [user, setUser] = useState([])
     
     getAPIData().then((items) => { setUser(items) });
@@ -54,7 +54,7 @@ const Login = ()=>{
                                 type="password" name="senha"
                                 placeholder="Digite sua senha" required
                                 value={password}
-                                onChange={(e)=> setPassaword(e.target.value)}
+                                onChange={(e)=> setPassword(e.target.value)}
                             />
                             <br/>
                             <a href="login/recSenha">Esqueci minha senha</a>
