@@ -1,22 +1,15 @@
-import React, { useEffect, useState } from "react";
-import styles from './Login.module.css'
-import axios from "axios";
-
-
-function getAPIData() {
-    const GET_URL = "http://localhost:3000/api/v2/usuarios"
-    return axios.get(GET_URL).then((response) => response.data);
-}
+import styles from '../ui/components/Login/Login.module.css'
+import React, { useState } from "react";
+import { getAPIData } from "../../../data/services/Crud";
 
 const Login = ()=>{
     const [name, setName] = useState()
     const [password, setPassword] = useState()
     const [user, setUser] = useState([])
     
-    getAPIData().then((items) => { setUser(items) });
-    
     function onSave(e) {
         e.preventDefault()
+        getAPIData().then((items) => { setUser(items) });
         return(
             <>
             {(user).forEach( (e) => {

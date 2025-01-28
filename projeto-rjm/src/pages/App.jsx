@@ -1,6 +1,6 @@
 // Deve ser melhorado o estilo para fique mais atrativo
 import React from "react";
-import styles from './App.module.css'
+import styles from '../ui/components/App/App.module.css'
 
 const App = ()=>{
   return (
