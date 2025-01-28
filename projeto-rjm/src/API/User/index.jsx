@@ -1,14 +1,16 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 
-const GET_URL = "http://localhost:3000/api/v2/usuarios"
+export const URL =  axios.create({
+    baseURL: 'http://localhost:3000/api/v2'
+})
 
 function getAPIData() {
-    return axios.get(GET_URL).then((response) => response.data);
+    return URL.get("/usuarios").then((response) => response.data);
 }
 
 function deleteAPIData(id) {
-    return axios.delete(`http://localhost:3000/api/v2/usuarios/${id}`).then((response) => response.data);
+    return URL.delete(`usuarios/${id}`).then((response) => response.data);
 }
 
 

@@ -1,6 +1,6 @@
-import styles from './Rec.module.css'
-import axios from "axios";
+import styles from 'projeto-rjm/src/ui/components/Registro/index.jsxRec/Rec.module.css'
 import React, { useEffect, useState } from "react";
+import { getAPIData } from "../../../data/services/Crud";
 
 
 const RecSenha = ()=>{
@@ -13,10 +13,6 @@ const RecSenha = ()=>{
         getAPIData().then((i) => { setUser(i) });
         return () => (mounted = false);
     }, []);
-
-    function getAPIData() {
-        return axios.get(GET_URL).then((response) => response.data);
-    }
 
     function onSave(e){
         e.preventDefault()

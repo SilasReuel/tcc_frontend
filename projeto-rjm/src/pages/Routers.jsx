@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import React, { useEffect, useState } from "react";
-import Login from "./components/Login";
-import Registro from "./components/Registro";
-import RecSenha from "./components/Rec";
-import App from './components/App';
-import Principal from "./components/Principal";
-import User from "./API/User";
+import App from './App';
+import Login from "./Login";
+import Principal from "./Principal";
+import RecSenha from "./RecSenha";
+import Registro from "./Registro";
+import User from "../API/User";
 
 const Routers = ()=>{
     return(

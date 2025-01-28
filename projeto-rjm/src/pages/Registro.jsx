@@ -1,6 +1,6 @@
+import styles from '../ui/components/Registro/Registro.module.css'
 import { useState } from 'react'
-import styles from './Registro.module.css'
-import axios from "axios";
+import { postAPIData } from '../data/services/Crud'
 
 const Registro = ()=>{
     // armazena as informações do forms
@@ -14,12 +14,6 @@ const Registro = ()=>{
         postAPIData({nome, email, senha, user_git})
         // joga para o login
         window.location.href="login"
-    }
-    
-    // função de post
-    function postAPIData( param ) {
-        const API_URL = "http://localhost:3000/api/v2/usuarios"
-        return axios.post(API_URL, param)
     }
 
     // forms
