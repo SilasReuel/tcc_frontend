@@ -1,11 +1,11 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import App from './App';
 import Login from "./Login";
 import Principal from "./Principal";
 import RecSenha from "./RecSenha";
 import Registro from "./Registro";
-import User from "../API/User";
+import Usuarios from "./Usuarios";
 
 const Routers = ()=>{
     return(
@@ -16,7 +16,7 @@ const Routers = ()=>{
                 <Route path="/registro" element={<Registro/>}/>
                 <Route path="login/recSenha" element={<RecSenha/>}/>
                 <Route path="/principal" element={<Principal/>}/>
-                <Route path="/usuarios" element={<User/>}/>
+                <Route path="/usuarios" element={<Usuarios/>}/>
             </Routes>
         </Router>   
     )

@@ -1,6 +1,6 @@
-import styles from 'projeto-rjm/src/ui/components/Registro/index.jsxRec/Rec.module.css'
+import styles from '../ui/components/Rec/Rec.module.css'
 import React, { useEffect, useState } from "react";
-import { getAPIData } from "../../../data/services/Crud";
+import { getAPIData } from "../data/services/Crud";
 
 
 const RecSenha = ()=>{
