@@ -1,34 +1,28 @@
 import styles from '../ui/components/Login/Login.module.css'
-import React, { useState } from "react";
-import { getAPIName } from "../data/services/Crud";
+import React, { useEffect, useState } from "react";
+import { getAPIName } from "../data/services/User";
 
 const Login = ()=>{
     const [name, setName] = useState()
     const [password, setPassword] = useState()
-    const [user, setUser] = useState({})
+    const [user, setUser] = useState()
+    useEffect(()=>{
+        if (name != ''){
+            getAPIName(name).then((e) => { setUser(e) })
+        }
+    })
     
     function onSave(e) {
         e.preventDefault()
-        getAPIName(name)
-        .then((items) => {setUser(items)})
-        .catch((e) => {
-            setName('') 
-            setPassword('') 
-        });
+        console.log(user)
         if (user != '') { 
-            if(password == user.senha){ 
+            if(password == user.senha)
                 location.href='principal'
-                setName('') 
-                setPassword('') 
-            } else { 
-                alert('Senha invalida!!')
-                setPassword('') 
-            } 
         } else { 
-            alert('Nome invalido!!') 
-            setName('') 
+            alert("Credenciais invalidas! Por favor tente novamente!")
         }
-        
+       setName('') 
+       setPassword('') 
     } 
 
     return (
