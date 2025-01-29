@@ -7,9 +7,8 @@ const App = ()=>{
     <div className={styles.app}>    
       <center>
         <h1>Seja Bem-vindo!!</h1>
+        <p>Faça seu login clicando no botão abaixo</p>
         <a href='/login'><button>Login</button></a>
-        <a href='/registro'><button>Registro</button></a>
-        <a href='/principal'><button>Principal</button></a>
       </center>
     </div>
   )

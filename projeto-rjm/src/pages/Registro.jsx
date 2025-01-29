@@ -63,7 +63,7 @@ const Registro = ()=>{
                     <br/>
                     <button type="submit">Enviar</button>
                 </form>
-                <a href="/"><button>Voltar</button></a>
+                <a href="/login"><button>Voltar</button></a>
             </center>
         </div>
     )

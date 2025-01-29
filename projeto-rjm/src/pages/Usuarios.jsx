@@ -1,20 +1,7 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { getAPIData } from "../data/services/Crud";
 
-export const URL =  axios.create({
-    baseURL: 'http://localhost:3000/api/v2'
-})
-
-function getAPIData() {
-    return URL.get("/usuarios").then((response) => response.data);
-}
-
-function deleteAPIData(id) {
-    return URL.delete(`usuarios/${id}`).then((response) => response.data);
-}
-
-
-function User() {
+function Usuarios() {
     const [user, setUser] = useState([])
 
     useEffect(() => {
@@ -32,7 +19,7 @@ function User() {
                 <td>Senha</td>
                 <td>User Git</td>
             </tr>
-            {(user).map(i => {
+            {(user).map((i) => {
                 return (
                     <tr key={i.id}>
                             <td>{i.id}</td>
@@ -41,10 +28,9 @@ function User() {
                             <td>{i.senha}</td>
                             <td>{i.user_git}</td>
                     </tr>
-                )})
-            }
+            )})}
         </table>
     );
 }
 
-export default User;
+export default Usuarios;
