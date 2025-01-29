@@ -1,27 +1,24 @@
 import styles from '../ui/components/Rec/Rec.module.css'
 import React, { useEffect, useState } from "react";
-import { getAPIData } from "../data/services/Crud";
+import { getAPIName } from "../data/services/User";
 
 
 const RecSenha = ()=>{
-    const [user, setUser] = useState([])
-    const [email, setEmail] = useState('')
-    const GET_URL = "http://localhost:3000/api/v2/usuarios"
+    const [user, setUser] = useState()
+    const [name, setName] = useState('')
     
     useEffect(() => {
-        let mounted = true;
-        getAPIData().then((i) => { setUser(i) });
-        return () => (mounted = false);
-    }, []);
+        if (name != ''){
+            getAPIName(name).then((i) => { setUser(i) });
+        }
+    });
 
     function onSave(e){
         e.preventDefault()
-        
-        {(user).map(i => {
-            if(email == i.email) { // necessita-se de estudo
-                window.location.href="../login"
-            } else {
-            }})
+        if(user != '') {
+            window.location.href="../login"
+        } else {
+            alert("ERROR: Nome não identificado! Por favor tente novamente!")
         }    
     }
 
@@ -33,9 +30,9 @@ const RecSenha = ()=>{
                 <form onSubmit={onSave}>
                     <label>
                         <input 
-                            type="mail" name="email" 
-                            placeholder="Digite o e-mail de sua conta" required
-                            onChange={(e) => setEmail(e.target.value)}
+                            type="name" name="nome" 
+                            placeholder="Digite seu nome" required
+                            onChange={(e) => setName(e.target.value)}
                         />
                     </label>
                     <button type="submit">Enviar</button>

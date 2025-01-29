@@ -1,6 +1,6 @@
 import styles from '../ui/components/Registro/Registro.module.css'
-import { useState } from 'react'
-import { postAPIData } from '../data/services/Crud'
+import { useEffect, useState } from 'react'
+import { postAPIData, getAPIName } from '../data/services/User'
 
 const Registro = ()=>{
     // armazena as informações do forms
@@ -8,12 +8,23 @@ const Registro = ()=>{
     const [senha, setSenha] = useState('')
     const [email, setEmail] = useState('')
     const [user_git, setNg] = useState('')
+    const [user, setUser] = useState()
+
+    useEffect(() => {
+            if (nome != ''){
+                getAPIName(nome).then((i) => { setUser(i) });
+            }
+        });
 
     function onSave(e){
         e.preventDefault()
-        postAPIData({nome, email, senha, user_git})
-        // joga para o login
-        window.location.href="login"
+        console.log(user)
+        if(user != ''){
+            alert("Já existe uma conta com essas credenciais!!")
+        } else {
+            postAPIData({nome, email, senha, user_git})
+            window.location.href="login"
+        }
     }
 
     // forms
