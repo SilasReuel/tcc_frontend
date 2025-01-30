@@ -1,26 +1,22 @@
 import styles from '../ui/components/Rec/Rec.module.css'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getAPIName } from "../data/services/User";
 
-
-const RecSenha = ()=>{
-    const [user, setUser] = useState()
+export default function RecSenha() {
     const [name, setName] = useState('')
-    
-    useEffect(() => {
-        if (name != ''){
-            getAPIName(name).then((i) => { setUser(i) });
-        }
-    });
 
-    function onSave(e){
+    const onSave = async (e) => {
         e.preventDefault()
-        if(user != '') {
-            window.location.href="../login"
-        } else {
-            alert("ERROR: Nome não identificado! Por favor tente novamente!")
-        }    
-    }
+        try {
+            const res = await getAPIName(name)
+            setName('')
+            if (res != '') { 
+                window.location.href="../login"
+            } else { 
+                alert("ERROR: Nome não identificado! Por favor tente novamente!")
+            }
+        } catch (err) { }
+    } 
 
     return(
         <div className={styles.rec}>
@@ -32,6 +28,7 @@ const RecSenha = ()=>{
                         <input 
                             type="name" name="nome" 
                             placeholder="Digite seu nome" required
+                            value={name} autoComplete='off'
                             onChange={(e) => setName(e.target.value)}
                         />
                     </label>
@@ -41,6 +38,4 @@ const RecSenha = ()=>{
             </center>
         </div>
     )
-};
-
-export default RecSenha;
+}

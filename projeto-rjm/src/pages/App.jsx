@@ -1,8 +1,7 @@
-// Deve ser melhorado o estilo para fique mais atrativo
 import React from "react";
 import styles from '../ui/components/App/App.module.css'
 
-const App = ()=>{
+export default function App() {
   return (
     <div className={styles.app}>    
       <center>
@@ -13,5 +12,3 @@ const App = ()=>{
     </div>
   )
 }
-
-export default App;

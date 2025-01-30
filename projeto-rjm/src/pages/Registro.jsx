@@ -1,45 +1,38 @@
 import styles from '../ui/components/Registro/Registro.module.css'
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { postAPIData, getAPIName } from '../data/services/User'
 
-const Registro = ()=>{
-    // armazena as informações do forms
+export default function Registro() {
     const [nome, setNome] = useState('')
     const [senha, setSenha] = useState('')
     const [email, setEmail] = useState('')
     const [user_git, setNg] = useState('')
-    const [user, setUser] = useState()
 
-    useEffect(() => {
-            if (nome != ''){
-                getAPIName(nome).then((i) => { setUser(i) });
-            }
-        });
-
-    function onSave(e){
+    const onSave = async (e) => {
         e.preventDefault()
-        console.log(user)
-        if(user != ''){
-            alert("Já existe uma conta com essas credenciais!!")
-        } else {
-            postAPIData({nome, email, senha, user_git})
-            window.location.href="login"
+        try {
+            const res = await getAPIName(nome)
+            if(res != ''){
+                alert("Já existe uma conta com essas credenciais!!")
+            } else {
+                postAPIData({nome, email, senha, user_git})
+                window.location.href="login"
+            }
+        } catch (error){
+
         }
     }
 
-    // forms
     return (
         <div className={styles.registro}>
             <center>
-                <h1>
-                    Faça seu Cadastro!
-                </h1>
+                <h1>Faça seu Cadastro!</h1>
                 <form onSubmit={onSave}>
                     <label>
                         Nome:<br/>
                         <input 
                             type="text" name="nome" 
-                            placeholder="Digite seu nome" required
+                            placeholder="Digite seu nome" required 
                             onChange={(e) => setNome(e.target.value)}
                         />
                     </label>
@@ -49,8 +42,8 @@ const Registro = ()=>{
                         <br/>
                         <input 
                             type="password" name="senha" 
-                            placeholder="Digite sua senha" required
-                            onChange={(e) => setSenha(e.target.value)}    
+                            placeholder="Digite sua senha" required 
+                            onChange={(e) => setSenha(e.target.value)}   
                         />
                     </label>
                     <br/>
@@ -79,5 +72,3 @@ const Registro = ()=>{
         </div>
     )
 }
-
-export default Registro

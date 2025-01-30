@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { getAPIData } from "../data/services/User";
 
-function Usuarios() {
+export default function Usuarios() {
     const [user, setUser] = useState([])
 
     useEffect(() => {
@@ -32,5 +32,3 @@ function Usuarios() {
         </table>
     );
 }
-
-export default Usuarios;

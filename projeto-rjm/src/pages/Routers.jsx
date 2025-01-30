@@ -7,7 +7,7 @@ import RecSenha from "./RecSenha";
 import Registro from "./Registro";
 import Usuarios from "./Usuarios";
 
-const Routers = ()=>{
+export default function Routers() {
     return(
         <Router>
             <Routes>
@@ -21,5 +21,3 @@ const Routers = ()=>{
         </Router>   
     )
 }
-
-export default Routers;
