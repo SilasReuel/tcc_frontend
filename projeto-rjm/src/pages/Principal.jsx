@@ -1,6 +1,6 @@
 import styles from '../ui/components/Registro/Registro.module.css'
 
-const Princ = ()=>{
+export default function Princ() {
     return(
         <div>
             <center>
@@ -10,5 +10,3 @@ const Princ = ()=>{
         </div>
     )
 }
-
-export default Princ;

@@ -1,28 +1,26 @@
 import styles from '../ui/components/Login/Login.module.css'
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { getAPIName } from "../data/services/User";
 
-const Login = ()=>{
+export default function Login() {
     const [name, setName] = useState()
-    const [password, setPassword] = useState()
-    const [user, setUser] = useState()
-    useEffect(()=>{
-        if (name != ''){
-            getAPIName(name).then((e) => { setUser(e) })
-        }
-    })
-    
-    function onSave(e) {
+    const [password, setPassword] = useState() 
+
+    const onSave = async (e) => {
         e.preventDefault()
-        console.log(user)
-        if (user != '') { 
-            if(password == user.senha)
-                location.href='principal'
-        } else { 
-            alert("Credenciais invalidas! Por favor tente novamente!")
-        }
-       setName('') 
-       setPassword('') 
+        try {
+            const res = await getAPIName(name)
+            if (res != '') { 
+                if(password == res.senha)
+                    location.href='principal'
+                else 
+                    alert("Credenciais invalidas! Por favor tente novamente!")    
+            } else { 
+                alert("Credenciais invalidas! Por favor tente novamente!")
+            }
+            setName('') 
+            setPassword('') 
+        } catch (err) { }
     } 
 
     return (
@@ -35,7 +33,7 @@ const Login = ()=>{
                             <input 
                                 type="text" name="nome"
                                 placeholder="Digite seu nome completo" required
-                                value={name}
+                                value={name} autoComplete='off'
                                 onChange={(e)=> setName(e.target.value)}    
                             />
                         </label>
@@ -60,5 +58,3 @@ const Login = ()=>{
         </div>
     );
 }
-
-export default Login;
