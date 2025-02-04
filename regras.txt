@@ -2,7 +2,7 @@ Os desenvolvedores devem clonar o repositório (Diferente de baixar o .zip)
 
 -----------Comandos git para Clonagem de Repositório------------
 |git init                                                      |
-|git clone https://github.com/SilasReuel/tcc_ts_development.git|
+|git clone <URL>                                               |
 ----------------------------------------------------------------
 
 <<<<<<Regra de PUSH>>>>>>
