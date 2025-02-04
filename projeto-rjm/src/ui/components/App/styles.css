@@ -1,0 +1,151 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0f1134;
+    color: white;
+  }
+  
+  .container {
+    width: 95%;
+    height: 95%;
+    margin: 2.5%;
+    text-align: center;
+    border-radius: 15%;
+  }
+
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22c55e;
+  }
+  
+  .login-btn,
+  .signup-btn {
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .signup-btn {
+    background-color: #1e3a8a;
+    color: white;
+    border-radius: 5px;
+  }
+  
+  .hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px;
+    background-color: #f8fafc;
+    color: black;
+  }
+  
+  .hero-text {
+    max-width: 600px;
+    text-align: center;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  
+  .hero-description {
+    margin-top: 10px;
+    color: #555;
+  }
+  
+  .hero-image {
+    width: 100%;
+    max-width: 500px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .features {
+    padding: 50px;
+    background-color: white;
+    color: black;
+  }
+  
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #22c55e;
+  }
+  
+  .feature-cards {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  
+  .feature-card {
+    background: #f8fafc;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 300px;
+  }
+  
+  .benefits {
+    padding: 50px;
+    background-color: #f8fafc;
+    color: black;
+  }
+  
+  .benefits-list {
+    text-align: left;
+    max-width: 400px;
+    margin: auto;
+    list-style: none;
+  }
+  
+  .benefits-image {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 20px;
+  }
+  
+  .cta {
+    padding: 50px;
+    background-color: #22c55e;
+    color: white;
+  }
+  
+  .cta-button {
+    margin-top: 20px;
+    padding: 15px 30px;
+    background: black;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .footer {
+    padding: 20px;
+    background-color: #0f1134;
+    color: gray;
+  }
+  
+  .footer-links a {
+    margin: 0 10px;
+    color: gray;
+    text-decoration: none;
+  }
+  
