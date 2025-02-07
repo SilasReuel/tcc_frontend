@@ -1,6 +1,6 @@
-import styles from '../ui/components/Rec/Rec.module.css'
+// import styles from '../ui/components/Rec/Rec.module.css'
 import React, { useState } from "react";
-import { getAPIName } from "../data/services/User";
+import { getAPIUser_Name } from "../data/services/API.jsx";
 
 export default function RecSenha() {
     const [name, setName] = useState('')
@@ -8,7 +8,7 @@ export default function RecSenha() {
     const onSave = async (e) => {
         e.preventDefault()
         try {
-            const res = await getAPIName(name)
+            const res = await getAPIUser_Name(name)
             setName('')
             if (res != '') { 
                 window.location.href="../login"
@@ -19,7 +19,7 @@ export default function RecSenha() {
     } 
 
     return(
-        <div className={styles.rec}>
+        <div>
             <center>
                 <h1>Esqueceu sua Senha?</h1>
                 <h5>Um código de recuperação será enviado</h5>

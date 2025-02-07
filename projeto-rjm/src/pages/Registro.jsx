@@ -1,6 +1,6 @@
-import styles from '../ui/components/Registro/Registro.module.css'
+// import styles from '../ui/components/Registro/Registro.module.css'
 import { useState } from 'react'
-import { postAPIData, getAPIName } from '../data/services/User'
+import { postAPIUser, getAPIUser_Name } from '../data/services/API.jsx'
 
 export default function Registro() {
     const [nome, setNome] = useState('')
@@ -11,12 +11,11 @@ export default function Registro() {
     const onSave = async (e) => {
         e.preventDefault()
         try {
-            const res = await getAPIName(nome)
+            const res = await getAPIUser_Name(nome)
             if(res != ''){
                 alert("Já existe uma conta com essas credenciais!!")
             } else {
-                postAPIData({nome, email, senha, user_git})
-                window.location.href="login"
+                postAPIUser({nome, email, senha, user_git})
             }
         } catch (error){
 
@@ -24,7 +23,7 @@ export default function Registro() {
     }
 
     return (
-        <div className={styles.registro}>
+        <div className='registro'>
             <center>
                 <h1>Faça seu Cadastro!</h1>
                 <form onSubmit={onSave}>

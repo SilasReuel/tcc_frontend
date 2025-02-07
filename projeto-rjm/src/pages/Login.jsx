@@ -1,6 +1,6 @@
-import styles from '../ui/components/Login/Login.module.css'
+// import '../ui/components/Login/Login.css'
 import React, { useState } from "react";
-import { getAPIName } from "../data/services/User";
+import { getAPIUser_Name } from "../data/services/API.jsx";
 
 export default function Login() {
     const [name, setName] = useState()
@@ -9,7 +9,7 @@ export default function Login() {
     const onSave = async (e) => {
         e.preventDefault()
         try {
-            const res = await getAPIName(name)
+            const res = await getAPIUser_Name(name)
             if (res != '') { 
                 if(password == res.senha)
                     location.href='principal'
@@ -24,7 +24,7 @@ export default function Login() {
     } 
 
     return (
-        <div className={styles.login}>
+        <div className='login'>
             <center>
                 <h1>Faça seu Login!</h1>
                 <form onSubmit={onSave}>
