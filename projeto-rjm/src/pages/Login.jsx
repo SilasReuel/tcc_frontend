@@ -1,6 +1,7 @@
 // import '../ui/components/Login/Login.css'
 import React, { useState } from "react";
 import { getAPIUser_Name } from "../data/services/API.jsx";
+import { onSession } from "../data/services/Session.jsx";
 
 export default function Login() {
     const [name, setName] = useState()
@@ -11,8 +12,10 @@ export default function Login() {
         try {
             const res = await getAPIUser_Name(name)
             if (res != '') { 
-                if(password == res.senha)
+                if(password == res.senha){
+                    // onSession() 
                     location.href='principal'
+                }
                 else 
                     alert("Credenciais invalidas! Por favor tente novamente!")    
             } else { 
