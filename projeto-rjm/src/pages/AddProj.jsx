@@ -7,7 +7,7 @@ export default function AddProj() {
     const [descricao, setDesc] = useState('')
     const dateFormatter = (date)=>{
         return new Intl.DateTimeFormat('pt-BR', {
-            dateStyle: 'short' // full ou short
+            dateStyle: 'short'
         }).format(date)
     }
 
@@ -26,10 +26,10 @@ export default function AddProj() {
                 <h1>Faça seu Cadastro!</h1>
                 <form onSubmit={onSave}>
                     <label>
-                        Nome:<br/>
+                        Título:<br/>
                         <input 
                             type="text" name="nome" 
-                            placeholder="Digite seu nome" required 
+                            placeholder="Digite o título" required 
                             onChange={(e) => setNome(e.target.value)}
                         />
                     </label>

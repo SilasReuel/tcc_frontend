@@ -38,7 +38,7 @@ export function postAPIProj(param) {
         res.data
         let bool = confirm("Adicionado com sucesso! Aperte OK para restornar à página anterior.")
         if(bool)
-            location.href='-/principal'
+            location.href='../principal'
     });
 }
 
